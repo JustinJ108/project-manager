@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Task Tracker - <%= project %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <form action="/" method="GET">
+    <select name="subject" onchange="this.form.submit()">
+      <% subjects.forEach(s => { %>
+        <option value="<%= s %>" <%= s === subject ? 'selected' : '' %>><%= s %></option>
+      <% }) %>
+    </select>
+    <input type="hidden" name="project" value="<%= project %>">
+  </form>
+  
+
+
+  <h1>Project: <%= project %></h1>
+
+  <!-- PROJECT TABS -->
+  <div class="tabs">
+    <% projects.forEach(p => { %>
+      <a href="/?subject=<%= subject %>&project=<%= p %>" class="<%= p === project ? 'active' : '' %>">
+        <%= p %>
+      </a>
+    <% }) %>
+  </div>
+  
+
+  <!-- NEW PROJECT -->
+  <form action="/create-project" method="POST">
+    <input type="hidden" name="subject" value="<%= subject %>">
+    <input type="text" name="project" placeholder="New project" required>
+    <button type="submit">+ Add Project</button>
+  </form>
+  
+
+  <!-- ADD TASK -->
+  <form action="/add" method="POST">
+    <input type="hidden" name="subject" value="<%= subject %>">
+    <input type="hidden" name="project" value="<%= project %>">
+    <input type="text" name="task" placeholder="New task" required>
+    <button type="submit">+</button>
+  </form>
+  
+  
+
+  <!-- TASK LIST -->
+  <ul>
+    <% tasks.forEach((task, index) => { %>
+      <li>
+        <%= task %>
+        <form action="/delete" method="POST" style="display:inline;">
+          <input type="hidden" name="subject" value="<%= subject %>">
+          <input type="hidden" name="project" value="<%= project %>">
+          <input type="hidden" name="index" value="<%= index %>">
+          <button type="submit">❌</button>
+        </form>
+        
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

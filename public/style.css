@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f5f5f5;
+  color: #333;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tabs a {
+  padding: 6px 12px;
+  background: #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.tabs a.active {
+  background: #007BFF;
+  color: #fff;
+}
+
+.tabs form {
+  margin: 0;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 4px 6px;
+  margin-left: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  padding: 6px;
+  margin-right: 10px;
+  width: 60%;
+  max-width: 300px;
+}
+
+button {
+  padding: 6px 10px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #3e8e41;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
